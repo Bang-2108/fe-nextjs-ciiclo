@@ -7,7 +7,7 @@ export default function Navbar() {
   const pathname = usePathname(); 
 
   const menuItems = [
-    { name: 'Home', path: '/home' },
+    { name: 'Home', path: '/' },
     { name: 'About', path: '/about' },
     { name: 'Skills', path: '/skills' },
     { name: 'Projects', path: '/projects' }, 
@@ -16,7 +16,7 @@ export default function Navbar() {
   return (
     <header className="fixed top-0 left-0 w-full z-50 bg-black/95 backdrop-blur-md py-5 border-b border-white/10">
       <div className="max-w-7xl mx-auto px-6 flex items-center justify-between">
-        <Link href="/home" className="text-white text-xl font-bold tracking-tight hover:text-primary transition-colors">
+        <Link href="/" className="text-white text-xl font-bold tracking-tight hover:text-primary transition-colors">
           Zoan Thi Bang
         </Link>
         <nav className="hidden lg:block">
