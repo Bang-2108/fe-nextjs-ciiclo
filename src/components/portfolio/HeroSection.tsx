@@ -7,7 +7,7 @@ interface HeroSectionProps {
 }
 
 export default function HeroSection({ profile }: HeroSectionProps) {
-  const handleDownloadCV = () => {
+  const handleViewCV = () => {
     if (profile?.cv_path) {
       window.open(profile.cv_path, '_blank');
     } else {
@@ -51,10 +51,10 @@ export default function HeroSection({ profile }: HeroSectionProps) {
           </a>
 
           <button
-            onClick={handleDownloadCV}
+            onClick={handleViewCV}
             className="border border-primary-accent text-primary-accent hover:bg-primary-accent/10 transition px-10 py-4 rounded-2xl font-semibold"
           >
-            Download CV
+            <i className="bi bi-box-arrow-up-right"></i> View CV
           </button>
         </div>
       </div>
