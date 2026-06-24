@@ -61,15 +61,27 @@ export default function ProjectsPage() {
 
         <div>
           <div className="flex flex-wrap gap-1.5 mb-4">
-            {project.tech_stack &&
-              project.tech_stack.map((tech, index) => (
+            {(() => {
+              let stackArray: string[] = [];
+
+              if (Array.isArray(project.tech_stack)) {
+                stackArray = project.tech_stack;
+              } else if (typeof project.tech_stack === 'string') {
+                stackArray = (project.tech_stack as string)
+                  .split(',')
+                  .map(item => item.trim())
+                  .filter(Boolean);
+              }
+
+              return stackArray.map((tech, index) => (
                 <span
                   key={index}
                   className="bg-pink-500/10 text-pink-400 border border-pink-500/10 text-[10px] font-medium px-2.5 py-0.5 rounded-full shadow-sm"
                 >
                   {tech}
                 </span>
-              ))}
+              ));
+            })()}
           </div>
 
           <div className="flex items-center justify-between pt-3 border-t border-white/5 text-xs font-semibold">
